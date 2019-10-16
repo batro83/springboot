@@ -1,23 +1,20 @@
-apply plugin: 'java'
-apply plugin: 'maven'
+plugins {
+	id 'org.springframework.boot' version '2.1.7.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
 
-description = """springboot"""
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-tasks.withType(JavaCompile) {
-	options.encoding = 'UTF-8'
-}
-
-
+archivesBaseName = 'springboot'
 
 repositories {
-        
-     maven { url "http://repo.maven.apache.org/maven2" }
+	mavenCentral()
 }
+
 dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.6.RELEASE'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'2.1.6.RELEASE'
